@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component version="1.2" xmlns="http://schemas.circuit-diagram.org/circuitDiagramDocument/2012/component/xml">
+	<declaration>
+		<!-- Describe the component -->
+		<meta name="name" value="Relay NO" />
+		<meta name="version" value="1.0" />
+		<meta name="minsize" value="150" />
+		<meta name="author" value="Oliver Bradley" />
+		<meta name="additionalinformation" value="Imperial College London" />
+		<meta name="guid" value="676bd9e4-97ee-4133-92e5-3adaeddd7ec3" />
+
+	
+		
+	</declaration>
+	<connections>
+		
+		<!-- Specify where other components can be connected to -->
+		
+		<group conditions="horizontal">
+			<connection start="_Start" end="_Middle-61x" edge="Start" />
+			<connection start="_Middle+61x" end="_End" edge="End" />
+          	<connection start="_Start+35y" end="_Middle-61x+35y" edge="Start" />
+          	<connection start="_Middle+61x+35y" end="_End+35y" edge="End" />
+		</group>
+		<group conditions="!horizontal">
+			<connection start="_Start" end="_Middle-61y" edge="Start" />
+			<connection start="_Middle+61y" end="_End" edge="End" />
+          	<connection start="_Start+35x" end="_Middle-61y+35x" edge="Start" />
+          	<connection start="_Middle+61y+35x" end="_End+61y+35x" edge="End" />
+		</group>
+		
+	</connections>
+	<render>
+		
+		<!-- Draw the component -->
+		
+		<!-- When placed horizontally, draw from left to right -->
+		<group conditions="horizontal">
+			
+			<!-- Draw the lines from the start and end points -->
+			<line start="_Start" end="_Middle-30x" />
+			<line start="_Middle+30x" end="_End" />
+          	<line start="_Start+35y" end="_Middle+35y-30x" />
+          	<line start="_Middle+35y+30x" end="_End+35y" />
+
+			<!-- Draw the box -->
+			<rect x="_Middle-50x" y="_Start-25y" width="100" height="70" />
+          
+          	<!-- Add Switch -->
+          	<ellipse centre="_Middle-28x" rx="2" ry="2" />
+          	<ellipse centre="_Middle+28x" rx="2" ry="2" />
+          	<line start="_Middle-26x" end="_Middle+26x-15y" />
+          
+          	<!-- Add coil -->
+          	<path start="_Middle-30x+35y" data="a 10 10, 0 1 1, 20 0" />
+          	<path start="_Middle-10x+35y" data="a 10 10, 0 1 1, 20 0" />
+          	<path start="_Middle+10x+35y" data="a 10 10, 0 1 1, 20 0" />
+			
+			
+		</group>
+		
+		<!-- When placed vertically, draw from top to bottom -->
+		<group conditions="!horizontal">
+
+			<!-- Draw the lines from the start and end points -->
+			<line start="_Start" end="_Middle-30y" />
+			<line start="_Middle+30y" end="_End" />
+         	<line start="_Start+35x" end="_Middle+35x-30y" />
+          	<line start="_Middle+35x+30y" end="_End+35x" />
+
+			<!-- Draw the box -->
+			<rect x="_Middle-15x" y="_Start+25y" width="70" height="100" />
+			
+          	<!-- Add Switch -->
+          	<ellipse centre="_Middle+35x-28y" rx="2" ry="2" />
+          	<ellipse centre="_Middle+35x+28y" rx="2" ry="2" />
+          	<line start="_Middle+35x-26y" end="_Middle+26y+50x" />
+          
+          	<!-- Add coil -->
+          	<path start="_Middle-30y" data="a 10 10, 0 1 1, 0 20" />
+          	<path start="_Middle-10y" data="a 10 10, 0 1 1, 0 20" />
+          	<path start="_Middle+10y" data="a 10 10, 0 1 1, 0 20" />
+			
+		</group>
+
+	</render>
+</component>
