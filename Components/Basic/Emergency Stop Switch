@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component version="1.2" xmlns="http://schemas.circuit-diagram.org/circuitDiagramDocument/2012/component/xml">
+	<declaration>
+		
+		<!-- Describe the component -->
+		<meta name="name" value="Emergency Stop Switch" />
+		<meta name="version" value="1.0" />
+		<meta name="minsize" value="150" />
+		<meta name="author" value="Oliver Bradley" />
+		<meta name="additionalinformation" value="Imperial College London" />
+		<meta name="guid" value="cd06a43e-1a4a-49dd-b775-9d7d023461e1" />
+
+		<!-- Define a property to hold the resistance value -->
+		<property name="Resistance" type="decimal" default="4700" serialize="resistance" display="Resistance">
+			<formatting>
+				<format conditions="$Resistance[lt]1000" value="$Resistance  \u2126" />
+				<format conditions="$Resistance[lt]1000000" value="$Resistance(div_1000_)(round_1)  k\u2126" />
+				<format value="$Resistance(div_1000000)(round_1)  M\u2126" />
+			</formatting>
+		</property>
+		
+	</declaration>
+	<connections>
+		
+		<!-- Specify where other components can be connected to -->
+		
+		<group conditions="horizontal">
+			<connection name="a" start="_Start" end="_Middle-61x" edge="start" />
+			<connection name="b" start="_Middle+61x" end="_End" edge="end" />
+		</group>
+		<group conditions="!horizontal">
+			<connection name="a" start="_Start" end="_Middle-61y" edge="start" />
+			<connection name="b" start="_Middle+61y" end="_End" edge="end" />
+		</group>
+		
+	</connections>
+	<render>
+		
+		<!-- Draw the component -->
+		
+		<!-- When placed horizontally, draw from left to right -->
+		<group conditions="horizontal">
+			
+			<!-- Draw the lines from the start and end points -->
+			<line start="_Start" end="_Middle-35x" />
+			<line start="_Middle+35x" end="_End" />
+
+			<!-- Vertical Line -->
+			<line start="_Middle-35x" end="_Middle-35x+25y" />
+			<!-- Diagonal Line -->
+          	<line start="_Middle+35x" end="_Middle-45x+16y" />
+          
+          	<!-- Reset Line -->
+          	<line start="_Middle-20x-30y" end="_Middle-20x-40y" />
+          	<line start="_Middle-20x-40y" end="_Middle+20x-40y" />
+          	<line start="_Middle+20x-40y" end="_Middle+20x-50y" />
+          	
+          	<!-- Switch button -->
+          	<path start="_Middle-20x-65y" data="a 20 20, 0 1 1, 40 0" />
+          	<line start="_Middle-20x-65y" end="_Middle+20x-65y" />
+          
+          	<!-- Action Line -->
+          	<line start="_Middle-65y" end="_Middle-60y" />
+          	<line start="_Middle-55y" end="_Middle-45y" />
+          	<line start="_Middle-35y" end="_Middle-25y" />
+          	<line start="_Middle-25y" end="_Middle+20x-20y" />
+            <line start="_Middle+20x-20y" end="_Middle-15y" />
+          	<line start="_Middle-15y" end="_Middle-5y" />
+          	<line start="_Middle+5y" end="_Middle" />
+  
+          
+          
+			<!-- Draw the Name -->
+			<text value="E-STOP" x="_Middle" y="_Middle+37" align="CentreCentre" />
+			
+		</group>
+		
+		<!-- When placed vertically, draw from top to bottom -->
+		<group conditions="!horizontal">
+
+			
+
+			<!-- Draw the lines from the start and end points -->
+			<line start="_Start" end="_Middle-35y" />
+			<line start="_Middle+35y" end="_End" />
+
+			<!-- Vertical Line -->
+			<line start="_Middle-35y" end="_Middle+25x-35y" />
+			<!-- Diagonal Line -->
+          	<line start="_Middle+35y" end="_Middle-45y+16x" />
+          
+          	<!-- Reset Line -->
+          	<line start="_Middle-30x-20y" end="_Middle-40x-20y" />
+          	<line start="_Middle-40x-20y" end="_Middle-40x+20y" />
+          	<line start="_Middle-40x+20y" end="_Middle+20y-50x" />
+          	
+          	<!-- Switch button -->
+          	<path start="_Middle+20y-65x" data="a 20 20, 0 1 1, 0 -40" />
+          	<line start="_Middle-20y-65x" end="_Middle+20y-65x" /> -->
+          
+          	<!-- Action Line -->
+          	<line start="_Middle-65x" end="_Middle-60x" />
+          	<line start="_Middle-55x" end="_Middle-45x" />
+          	<line start="_Middle-35x" end="_Middle-25x" />
+          	<line start="_Middle-25x" end="_Middle+20y-20x" />
+            <line start="_Middle+20y-20x" end="_Middle-15x" />
+          	<line start="_Middle-15x" end="_Middle-5x" />
+          	<line start="_Middle+5x" end="_Middle" />
+        
+          	<!-- Draw the Name -->
+			<text value="E-STOP" x="_Middle+45" y="_Middle" align="CentreCentre" />
+			
+		</group>
+
+	</render>
+</component>
